@@ -17,7 +17,7 @@ class Student:
     """Holds the students tags."""
 
     def __init__(self):
-        self.tags = ["crt", "crt", "pci", "wrk"]
+        self.tags = ["crt", "crt"]
 
     def select_event(self, event):
         for tag in event.tags:
@@ -26,22 +26,12 @@ class Student:
     def get_tags(self):
         return self.tags
 
-    def greatest(ls, amount):
-        # self.amount = amount
-        # self.ls = ls
-        out = []
-        for i in range(amount):
-            self.highest = max(ls)
-            out.append(self.highest)
-            ls.remove(self.highest)
-        print(self.out)
-        return self.out
-
     def suggest(self, event_list, suggest_amount):
         self.suggest_amount = suggest_amount
         self.event_scores = []
+
+        # Make the score for the flex events
         for event in event_list:
-            print("Event: ", event.name)
             self.score = 0
             for event_tag in event.tags:
                 for student_tag in self.tags:
@@ -50,24 +40,30 @@ class Student:
                     else:
                         pass
             event.score = self.score
-            print(event.name, "score:", event.score)
             self.event_scores.append(event)
 
+        # Find the highest scoring events
+        out = []
+        for _ in range(self.suggest_amount):
+            tmp = 0
+            for i in self.event_scores:
+                if i.score > tmp:
+                    tmp = i.score
+                else:
+                    pass
+            out.append(i.name)
+            print(i.score)
+            i.score = 0
+        print(out)
 
-        self.greatest(self.suggest_amount)
-        # self.out = []
-        # for i in range(self.suggest_amount):
-        #     self.highest = max(self.event_scores)
-        #     print(max(self.event_scores[i]))
-        #     self.out.append(self.highest)
-        #     ls.remove(self.highest)
-        #     print()
+
+
 
 
 hackerspace = MakeEvent("Hackerspace", "wrk", "ct", "lc")
-at_issue = MakeEvent("At Issue", "crt", "pci", "par", "wrk", "lc")
+at_issue = MakeEvent("At Issue", "crt", "pci", "par", "wrk", "lc", "crt")
 events = [hackerspace, at_issue]
 
 isaac = Student()
 isaac.get_tags()
-isaac.suggest(events, 3)
+isaac.suggest(events, 2)
