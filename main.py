@@ -1,5 +1,5 @@
 # Isaac Morrow, 2018
-# Edit
+# Stuff
 # Suggests a flex event to a student using tags
 from collections import Counter
 
@@ -54,15 +54,6 @@ class Student:
             print(event.name, "score:", event.score)
             self.event_scores.append(event)
 
-
-
-        # self.out = []
-        # for i in range(self.suggest_amount):
-        #     self.highest = max(self.event_scores)
-        #     print(max(self.event_scores[i]))
-        #     self.out.append(self.highest)
-        #     ls.remove(self.highest)
-        #     print()
 
 
 hackerspace = MakeEvent("Hackerspace", "wrk", "ct", "lc")
