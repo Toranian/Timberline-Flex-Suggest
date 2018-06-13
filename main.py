@@ -54,7 +54,7 @@ class Student:
             self.event_scores.append(event)
 
 
-        self.greatest(self.suggest_amount)
+
         # self.out = []
         # for i in range(self.suggest_amount):
         #     self.highest = max(self.event_scores)
